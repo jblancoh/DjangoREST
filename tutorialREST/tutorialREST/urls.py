@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
+
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -24,7 +25,8 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     # Examples:
     # url(r'^$', 'tutorialREST.views.home', name='home'),
-    url(r'^', include(router.urls)),
+    url(r'^', include('snippets.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
 ]
